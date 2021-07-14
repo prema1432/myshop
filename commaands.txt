@@ -1,0 +1,17 @@
+If you are using Linux, you can install RabbitMQ from the shell using the following
+command:
+apt-get install rabbitmq
+
+After installing it, launch RabbitMQ using the following command from the shell:
+rabbitmq-server
+
+
+Open another shell and start the Celery worker from your project directory, using
+the following command:
+celery -A MYSHOP worker -l info
+
+
+pip install flower==0.9.3
+Once installed, you can launch Flower by running the following command from
+your project directory:
+celery -A MYSHOP flower
