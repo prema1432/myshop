@@ -143,3 +143,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 CART_SESSION_ID = 'cart'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+EMAIL_USE_TLS=True
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_HOST_USER='premanath.2143@gmail.com'
+EMAIL_HOST_PASSWORD='qquwstrdeajsyrul'
+EMAIL_PORT=587
+FROM_EMAIL = 'premanath.2143@gmail.com' # replace with your address
