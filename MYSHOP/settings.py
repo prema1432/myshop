@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'shop.apps.ShopConfig',
     'cart.apps.CartConfig',
     'orders.apps.OrdersConfig',
+    'payment.apps.PaymentConfig',
 ]
 
 MIDDLEWARE = [
@@ -142,7 +143,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 CART_SESSION_ID = 'cart'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 EMAIL_USE_TLS=True
 EMAIL_HOST='smtp.gmail.com'
@@ -150,3 +151,15 @@ EMAIL_HOST_USER='premanath.2143@gmail.com'
 EMAIL_HOST_PASSWORD='qquwstrdeajsyrul'
 EMAIL_PORT=587
 FROM_EMAIL = 'premanath.2143@gmail.com' # replace with your address
+
+# Braintree settings
+BRAINTREE_MERCHANT_ID = 'h62c3pkrt8w34r8t' # Merchant ID
+BRAINTREE_PUBLIC_KEY = 'zfpt9q2yrdgxmjp5' # Public Key
+BRAINTREE_PRIVATE_KEY = '62d0bb7e5de7b58762669bf1f1e07b47' # Private key
+import braintree
+BRAINTREE_CONF = braintree.Configuration(
+braintree.Environment.Sandbox,
+BRAINTREE_MERCHANT_ID,
+BRAINTREE_PUBLIC_KEY,
+BRAINTREE_PRIVATE_KEY
+)

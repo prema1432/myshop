@@ -1,4 +1,5 @@
 from celery import task
+from django.conf import settings
 from django.core.mail import send_mail
 from .models import Order
 @task
@@ -14,6 +15,8 @@ def order_created(order_id):
     f'Your order ID is {order.id}.'
     mail_sent = send_mail(subject,
     message,
-    'talamarlapremanath@gmail.com',
-    [order.email])
+    settings.EMAIL_HOST_USER,
+    [order.email],
+                          fail_silently=False,
+                          )
     return mail_sent
